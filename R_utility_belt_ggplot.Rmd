@@ -196,15 +196,16 @@ ggplot(fdat,aes(x = animal, y = fitbit, fill=animal)) +
 
 ##Further resources:
 
-Wickham, Hadley. (2010). A Layered Grammar of Graphics. Journal of Computational and Statistical Graphics.
+Reading: Wickham, Hadley. (2010). A Layered Grammar of Graphics. Journal of Computational and Statistical Graphics.
 
-Wilkinson, L. (2005), The Grammar of Graphics (2nd ed.). Statistics and Computing, New York: Springer. [14,18]
+Reading: Wilkinson, L. (2005), The Grammar of Graphics (2nd ed.). Statistics and Computing, New York: Springer. [14,18]
 
-http://www.cookbook-r.com/Graphs/
+Resource: http://www.cookbook-r.com/Graphs/
 
-https://github.com/jennybc/ggplot2-tutorial
+Tutorial: https://github.com/jennybc/ggplot2-tutorial
 
-Tufte, Edward R. The Visual Display of Quantitative Information. 
+Reading: Tufte, Edward R. The Visual Display of Quantitative Information. 
 
-http://stcorp.nl/R_course/tutorial_ggplot2.html
+Tutorial: http://stcorp.nl/R_course/tutorial_ggplot2.html
 
+Resource: http://ggplot2.tidyverse.org/reference/theme.html
