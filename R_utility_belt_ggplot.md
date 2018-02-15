@@ -40,7 +40,8 @@ otherwise is purely coincidental.**
     #Code for creating furry_dataset.csv in in the repo under furry_dataset.R
     fdat <- read.csv("furry_dataset.csv")
 
-    #to start - we need our data - note that a blank graphic is produced - we have not said what we are plotting or how we are plotting it
+    #to start - we need our data - note that a blank graphic is produced - we have
+    #not said what we are plotting or how we are plotting it
     ggplot(fdat)
 
 ![](R_utility_belt_ggplot_files/figure-markdown_strict/unnamed-chunk-1-1.png)
@@ -113,11 +114,14 @@ otherwise is purely coincidental.**
     ##  $ labels     : list()
     ##  - attr(*, "class")= chr [1:2] "gg" "ggplot"
 
-    #list of 9 - data, layers, scales, mapping, theme, coordinates, facet, plot_env, labels
+    #list of 9 - data, layers, scales, mapping, theme, coordinates, facet, plot_env,
+    #labels
     #luckily there are some defaults so we don't have to specify everything
 
-    #in practice, people omit mapping = , but it might help you to understand what we are doing
-    #we are choosing the data we are plotting - the data can be scaled and the axes appear
+    #in practice, people omit mapping = , but it might help you to understand what
+    #we are doing
+    #we are choosing the data we are plotting - the data can be scaled and the axes
+    #appear
     ggplot(fdat, mapping = aes(x=weight, y=fitbit)) 
 
 ![](R_utility_belt_ggplot_files/figure-markdown_strict/unnamed-chunk-1-2.png)
@@ -127,7 +131,8 @@ otherwise is purely coincidental.**
 
 ![](R_utility_belt_ggplot_files/figure-markdown_strict/unnamed-chunk-1-3.png)
 
-    #we can add a statistical transformation to look at the data on a different scale
+    #we can add a statistical transformation to look at the data on a different
+    #scale
     ggplot(fdat, aes(x=weight, y=fitbit)) + 
         geom_line() + 
         scale_y_log10()
@@ -142,7 +147,8 @@ otherwise is purely coincidental.**
 
 ![](R_utility_belt_ggplot_files/figure-markdown_strict/unnamed-chunk-1-5.png)
 
-    #since the animals have quite a range of different weights, we could modify the x-axis to be specific for each animal
+    #since the animals have quite a range of different weights, we could modify the
+    #x-axis to be specific for each animal
     ggplot(fdat, aes(x=weight, y=fitbit)) + 
         geom_line() + 
         scale_y_log10() + 
@@ -150,14 +156,18 @@ otherwise is purely coincidental.**
 
 ![](R_utility_belt_ggplot_files/figure-markdown_strict/unnamed-chunk-1-6.png)
 
-    #when we look at the data without the log transformation the wolverine is an outlier. Wolverines are crazy, climb moutains, and being are tracked by ultrarunners. They may be an outlier compared to our GP and sloth.
+    #when we look at the data without the log transformation the wolverine is an
+    #outlier. Wolverines are crazy, climb moutains, and being are tracked by
+    #ultrarunners. They may be an outlier compared to our GP and sloth.
     ggplot(fdat, aes(x=weight, y=fitbit)) + 
         geom_line() + 
         facet_wrap(~animal, scales="free_x")
 
 ![](R_utility_belt_ggplot_files/figure-markdown_strict/unnamed-chunk-1-7.png)
 
-    #The data can be subsetted earlier, or in the function call. If you are using the same mapping base frequently, you can store it as a variable to reduce redundancy.
+    #The data can be subsetted earlier, or in the function call. If you are using
+    #the same mapping base frequently, you can store it as a variable to reduce
+    #redundancy.
     p <- ggplot(subset(fdat, animal != "wolverine"), aes(x=weight, y=fitbit))
 
     p + geom_line() + 
@@ -165,7 +175,8 @@ otherwise is purely coincidental.**
 
 ![](R_utility_belt_ggplot_files/figure-markdown_strict/unnamed-chunk-1-8.png)
 
-    #we could add a regression line - which is linear due to my use of a balanced normal distribution. You can use other methods such as loess.
+    #we could add a regression line - which is linear due to my use of a balanced
+    #normal distribution. You can use other methods such as loess.
     p + geom_line() + 
       stat_smooth(method=lm) + 
         facet_wrap(~animal, scales="free_x")
@@ -209,7 +220,8 @@ otherwise is purely coincidental.**
 ![](R_utility_belt_ggplot_files/figure-markdown_strict/unnamed-chunk-2-4.png)
 
     #histogram
-    #the default binwidth is 30 and has NOTHING to do with your data -- so CHANGE IT!
+    #the default binwidth is 30 and has NOTHING to do with your data -- so CHANGE
+    #IT!
     ggplot(fdat, aes(x=weight, fill=animal, alpha=0.3)) + 
         geom_histogram(binwidth = 50) 
 
